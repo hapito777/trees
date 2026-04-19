@@ -1,0 +1,29 @@
+% --- GC-4 Barranco de Guayadeque ------------------------------------
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.85, every node/.style={font=\footnotesize}]
+  % canyon walls
+  \draw[baedrule, line width=0.5pt] (-0.3,0.7) -- (6.5,1.6);
+  \draw[baedrule, line width=0.5pt] (-0.3,-0.7) -- (6.5,-1.6);
+  % trail
+  \draw[baedsepia, line width=1.2pt] (0,0) -- (1.5,0.05) -- (3.0,-0.05) -- (4.5,0.1) -- (6.0,0);
+  \foreach \x/\y/\n in {0/0/{1},1.5/0.05/{2},3.0/-0.05/{3},6.0/0/{4}}
+    \node[circle, draw=baedred, fill=white, inner sep=1.2pt] at (\x,\y) {\scriptsize\n};
+  \node[anchor=east]  at (-0.1,0)  {\textbf{Cueva Bermeja}};
+  \node[anchor=south] at (1.5,0.1) {Tagoror};
+  \node[anchor=west]  at (6.1,0)   {конец тропы};
+\end{tikzpicture}
+\hspace{0.2em}
+\begin{tikzpicture}
+\begin{axis}[
+  width=4.4cm, height=2.8cm,
+  xlabel={\scriptsize км}, ylabel={\scriptsize м},
+  xmin=0, xmax=6.5, ymin=650, ymax=850,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  every axis plot/.append style={thick, baedred}]
+\addplot coordinates {(0,680) (1.5,720) (3.0,830) (4.5,760) (6.0,680)};
+\end{axis}
+\end{tikzpicture}
+\caption*{\footnotesize Маршрут \textbf{GC-4}: схема ущелья и~профиль.}
+\end{figure}

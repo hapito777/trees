@@ -1,0 +1,32 @@
+% ====================================================================
+%  Гран-Канария. Карманный путеводитель в стиле Бедекера
+%  Compile: xelatex (latexmk -xelatex)
+% ====================================================================
+\documentclass[11pt,openany]{book}
+
+\usepackage{preamble/colors}
+\usepackage{preamble/packages}
+\usepackage{preamble/baedeker}
+
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
+
+\begin{document}
+
+\frontmatter
+\include{chapters/00-frontmatter}
+
+\mainmatter
+\include{chapters/01-einleitung}
+\include{chapters/02-geschichte}
+\include{chapters/03-praktisch}
+\include{chapters/04-regionen}
+\include{chapters/05-sehenswuerdig}
+\include{chapters/06-wanderungen}
+\include{chapters/07-touren}
+
+\backmatter
+\include{chapters/08-anhang}
+\printindex
+
+\end{document}

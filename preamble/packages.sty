@@ -1,0 +1,60 @@
+\ProvidesPackage{preamble/packages}
+
+% --- Core -------------------------------------------------------------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguages{german,english,spanish}
+
+% --- Fonts (Cyrillic-capable; fallbacks guaranteed in TeX Live) -------
+\setmainfont{Liberation Serif}[
+  Scale     = 1.00 ,
+  Ligatures = TeX ]
+\setsansfont{Liberation Sans}[Scale = 0.95, Ligatures = TeX]
+\setmonofont{Liberation Mono}[Scale = 0.90]
+
+% --- Geometry: pocket-brochure feel, wide outer margin ---------------
+\usepackage[
+  paperwidth  = 148mm ,
+  paperheight = 210mm ,
+  inner       = 16mm  ,
+  outer       = 32mm  ,
+  top         = 16mm  ,
+  bottom      = 18mm  ,
+  marginparwidth = 24mm ,
+  marginparsep   = 3mm
+]{geometry}
+
+% --- Graphics, maps, plots -------------------------------------------
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning, arrows.meta, decorations.pathmorphing,
+                shapes.geometric, backgrounds, calc}
+
+% --- Typography helpers ----------------------------------------------
+\usepackage{microtype}
+\usepackage{marginnote}
+\usepackage{changepage}    % adjustwidth for detour blocks
+\usepackage{enumitem}
+\setlist{nosep, leftmargin=1.2em}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{titlesec}
+
+% --- Index ------------------------------------------------------------
+\usepackage{imakeidx}
+\makeindex[title=Указатель мест, columns=2, intoc]
+
+% --- Hyperlinks (load late) ------------------------------------------
+\usepackage[
+  colorlinks=true,
+  linkcolor=baedred,
+  urlcolor=baedred,
+  citecolor=baedred,
+  pdftitle={Гран-Канария. Карманный путеводитель},
+  pdfauthor={Бедекер (репринт)}
+]{hyperref}
+
+\endinput

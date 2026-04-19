@@ -1,0 +1,22 @@
+% --- GC-6 Dunes of Maspalomas ---------------------------------------
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.85, every node/.style={font=\footnotesize}]
+  % ocean
+  \fill[baedrule!30] (-0.3,-1.2) rectangle (7,-0.6);
+  \node[baedmute] at (3.3,-0.9) {\scriptsize океан};
+  % dunes (wavy)
+  \draw[baedsepia, thick, decorate, decoration={coil, aspect=0, segment length=6pt, amplitude=1pt}]
+       (-0.2,0) -- (6.8,0);
+  % trail
+  \draw[baedred, line width=1.0pt]
+    (0,-0.4) -- (1.2,-0.2) -- (3.0,0.3) -- (4.6,0.2) -- (6.3,-0.4);
+  \foreach \x/\y/\n in {0/-0.4/{1},1.2/-0.2/{2},3.0/0.3/{3},6.3/-0.4/{4}}
+    \node[circle, draw=baedred, fill=white, inner sep=1.2pt] at (\x,\y) {\scriptsize\n};
+  \node[anchor=east]  at (-0.1,-0.4) {\textbf{Faro}};
+  \node[anchor=south] at (1.2,-0.15) {Charca};
+  \node[anchor=south] at (3.0,0.35)  {высшая гряда};
+  \node[anchor=west]  at (6.4,-0.4)  {\textbf{Playa del Inglés}};
+\end{tikzpicture}
+\caption*{\footnotesize Маршрут \textbf{GC-6}: песчаное побережье.}
+\end{figure}

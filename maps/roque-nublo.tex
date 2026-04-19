@@ -1,0 +1,30 @@
+% --- GC-1 Rocque Nublo trail schematic + elevation profile -----------
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.9, every node/.style={font=\footnotesize}]
+  % background route line
+  \draw[baedsepia, line width=1.2pt, rounded corners]
+    (0,0) -- (1.4,0.4) -- (2.6,0.2) -- (3.8,1.1) -- (4.6,1.6)
+    -- (4.8,1.8) -- (4.6,1.6) -- (3.8,1.1) -- (2.6,0.2) -- (1.4,0.4) -- (0,0);
+  % waypoints
+  \foreach \x/\y/\n in {0/0/{1},1.4/0.4/{2},2.6/0.2/{3},3.8/1.1/{4},4.8/1.8/{5}}
+    \node[circle, draw=baedred, fill=white, inner sep=1.2pt] at (\x,\y) {\scriptsize\n};
+  \node[anchor=west]      at (0.1,-0.25) {La Goleta};
+  \node[anchor=south]     at (4.8,1.9)   {\textbf{Роке-Нубло} 1813\,м};
+  \node[anchor=west]      at (3.9,1.1)   {плато};
+  \draw[->, baedmute]     (-0.6,-0.3) -- (-0.1,-0.3) node[midway, below]{\scriptsize GC-600};
+\end{tikzpicture}
+\hspace{0.6em}
+\begin{tikzpicture}
+\begin{axis}[
+  width=4.8cm, height=3.0cm,
+  xlabel={\scriptsize км}, ylabel={\scriptsize м},
+  xmin=0, xmax=3.5, ymin=1560, ymax=1830,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  every axis plot/.append style={thick, baedred}]
+\addplot coordinates {(0,1580) (0.7,1620) (1.6,1700) (1.9,1813) (2.2,1700) (3.5,1580)};
+\end{axis}
+\end{tikzpicture}
+\caption*{\footnotesize Маршрут \textbf{GC-1}: схема и~профиль высот.}
+\end{figure}

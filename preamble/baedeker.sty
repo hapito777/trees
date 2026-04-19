@@ -1,0 +1,66 @@
+\ProvidesPackage{preamble/baedeker}
+
+% ---------------------------------------------------------------------
+%  Baedeker-style macros
+% ---------------------------------------------------------------------
+
+% One-star / two-star sight: red asterisks precede the name.
+\newcommand{\sight}[1]{{\color{baedred}\textbf{*}}\,#1}
+\newcommand{\sightt}[1]{{\color{baedred}\textbf{**}}\,#1}
+
+% Letter-spaced (gesperrt) text using XeLaTeX / fontspec
+\newcommand{\sotext}[1]{{\addfontfeatures{LetterSpace=12.0}#1}}
+
+% Bold, letter-spaced place name (gesperrt). First-mention index entry.
+\newcommand{\place}[1]{\texorpdfstring{\textbf{\sotext{#1}}}{#1}\index{#1}}
+
+% Quick index entry without formatting
+\newcommand{\placex}[1]{#1\index{#1}}
+
+% Side-trip / detour: indented smaller italic block.
+\newenvironment{detour}
+  {\par\begin{adjustwidth}{1em}{1em}\small\itshape\color{baedink}%
+   \vspace{0.2\baselineskip}\noindent$\triangleright$\ }
+  {\end{adjustwidth}\par\vspace{0.2\baselineskip}}
+
+% Practical margin note (distance, elevation, bus no., time).
+\newcommand{\marginfact}[1]{%
+  \marginnote{\footnotesize\color{baedmute}\itshape #1}}
+
+% Header block for every walking route.
+%   #1 code   #2 title   #3 distance   #4 ascent   #5 time   #6 difficulty
+\newcommand{\hike}[6]{%
+  \par\vspace{0.8\baselineskip}%
+  \noindent\rule{\linewidth}{0.3pt}\par
+  \noindent{\color{baedred}\textbf{#1}}\quad
+           {\large\bfseries #2}\par
+  \vspace{0.15\baselineskip}
+  \noindent{\footnotesize\color{baedmute}%
+    Дистанция: \textbf{#3}\quad
+    Набор высоты: \textbf{#4}\quad
+    Время: \textbf{#5}\quad
+    Сложность: \textbf{#6}}\par
+  \noindent\rule{\linewidth}{0.3pt}\par
+  \vspace{0.3\baselineskip}}
+
+% Single numbered trail waypoint:  \waypoint{2,4 км}{описание}
+\newcommand{\waypoint}[2]{%
+  \par\noindent\textbf{#1}\ --- #2\par}
+
+% Info line used in region openings
+\newcommand{\factline}[1]{%
+  \noindent{\small\color{baedmute}\textit{#1}}\par\vspace{0.3\baselineskip}}
+
+% Section heading style
+\titleformat{\section}
+  {\Large\bfseries\color{baedred}}{\thesection}{0.6em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{baedink}}{\thesubsection}{0.5em}{}
+\titleformat{\chapter}[display]
+  {\huge\bfseries\color{baedred}}
+  {\filleft\normalsize\color{baedmute}Глава \thechapter}
+  {0.4em}
+  {\filleft}
+  [\vspace{-0.2em}\color{baedrule}\rule{\linewidth}{0.4pt}]
+
+\endinput

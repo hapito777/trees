@@ -1,0 +1,31 @@
+% --- GC-3 Tamadaba loop ----------------------------------------------
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.85, every node/.style={font=\footnotesize}]
+  \draw[baedsepia, line width=1.2pt, rounded corners]
+    (0,0) -- (-1.0,0.4) -- (-1.4,1.4) -- (-0.6,2.2) -- (0.8,2.3)
+    -- (1.9,1.7) -- (2.1,0.8) -- (1.3,0.2) -- (0,0);
+  \foreach \x/\y/\n in {0/0/{1},-1.4/1.4/{2},0.8/2.3/{3},2.1/0.8/{4},1.3/0.2/{5}}
+    \node[circle, draw=baedred, fill=white, inner sep=1.2pt] at (\x,\y) {\scriptsize\n};
+  \node[anchor=north] at (0,-0.1)   {\textbf{Llanos de la Mimbre}};
+  \node[anchor=east]  at (-1.5,1.4) {Mirador del Balcón};
+  \node[anchor=south] at (0.8,2.4)  {Pico \textbf{1444\,м}};
+  % Ocean to the west
+  \draw[baedrule, decoration={coil, segment length=6pt, amplitude=1pt},
+        decorate] (-2.6,0.5) -- (-2.6,2.0);
+  \node[anchor=east, baedmute] at (-2.6,1.25) {\scriptsize океан};
+\end{tikzpicture}
+\hspace{0.2em}
+\begin{tikzpicture}
+\begin{axis}[
+  width=4.6cm, height=3cm,
+  xlabel={\scriptsize км}, ylabel={\scriptsize м},
+  xmin=0, xmax=9.5, ymin=1250, ymax=1500,
+  tick label style={font=\tiny},
+  label style={font=\tiny},
+  every axis plot/.append style={thick, baedred}]
+\addplot coordinates {(0,1300) (2.6,1380) (5.1,1444) (7.4,1340) (9.0,1300)};
+\end{axis}
+\end{tikzpicture}
+\caption*{\footnotesize Маршрут \textbf{GC-3}: кольцевая схема и~профиль.}
+\end{figure}
