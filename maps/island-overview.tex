@@ -1,0 +1,89 @@
+% --- Обзорная карта Гран-Канарии -------------------------------------
+% Схематическая, в духе старых путеводителей: контур острова,
+% основные города, кольцевая дорога GC-1, горные ориентиры, тропы.
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[x=1cm, y=1cm, font=\scriptsize]
+
+  % --- береговая линия (схематический круг, характерная форма острова) ---
+  \draw[baedsepia, line width=0.8pt, fill=baedpaper]
+    plot [smooth cycle, tension=0.8] coordinates {
+      (0,3.6) (1.4,3.5) (2.6,3.0) (3.4,2.2) (3.7,1.0)
+      (3.4,-0.2) (2.6,-1.3) (1.3,-1.8) (-0.2,-1.9)
+      (-1.6,-1.5) (-2.6,-0.6) (-3.1,0.6) (-3.0,1.8) (-2.3,2.8)
+      (-1.1,3.5)
+    };
+
+  % --- кольцевая автодорога GC-1 (пунктиром внутри контура) --------------
+  \draw[baedmute, dashed, line width=0.4pt]
+    plot [smooth cycle, tension=0.8] coordinates {
+      (0,2.8) (1.2,2.6) (2.1,2.1) (2.6,1.1) (2.5,0.0)
+      (1.9,-0.9) (0.8,-1.3) (-0.4,-1.3) (-1.6,-1.0)
+      (-2.2,-0.2) (-2.4,0.8) (-1.9,1.9) (-1.0,2.6)
+    };
+
+  % --- центральный горный массив --------------------------------------
+  \node[regular polygon, regular polygon sides=3,
+        draw=baedsepia, fill=baedrule!40,
+        minimum size=6pt, inner sep=0pt] (peak) at (-0.2,0.9) {};
+  \node[anchor=west, baedink] at (0.0,0.9) {\textbf{Роке-Нубло} 1813\,м};
+
+  \node[star, star points=5, star point ratio=0.5, draw=baedsepia,
+        fill=baedrule!60, minimum size=4pt, inner sep=0pt] at (-0.6,1.3) {};
+  \node[anchor=south, baedmute] at (-0.6,1.4) {\tiny Пико-де-лас-Ньевес};
+
+  % --- города (точка + подпись) ---------------------------------------
+  % север --- Лас-Пальмас
+  \fill[baedred] (1.0,3.3) circle (2pt);
+  \node[anchor=south west, baedred] at (1.0,3.3) {\textbf{Лас-Пальмас}};
+  % Арукас
+  \fill[baedink] (-0.3,3.1) circle (1.2pt);
+  \node[anchor=south, baedink] at (-0.3,3.2) {Арукас};
+  % Агаэте
+  \fill[baedink] (-2.7,2.1) circle (1.2pt);
+  \node[anchor=east, baedink] at (-2.8,2.1) {Агаэте};
+  % Теро́р
+  \fill[baedink] (-0.6,2.3) circle (1.2pt);
+  \node[anchor=east, baedink] at (-0.7,2.3) {Терор};
+  % Техеда
+  \fill[baedink] (-0.3,1.6) circle (1.2pt);
+  \node[anchor=east, baedink] at (-0.4,1.6) {Техеда};
+  % Артенара
+  \fill[baedink] (-1.2,1.7) circle (1.2pt);
+  \node[anchor=east, baedink] at (-1.3,1.7) {Артенара};
+  % Пуэрто-де-Моган
+  \fill[baedink] (-1.5,-1.1) circle (1.2pt);
+  \node[anchor=north east, baedink] at (-1.5,-1.15) {П.-де-Моган};
+  % Маспаломас
+  \fill[baedred] (0.6,-1.6) circle (2pt);
+  \node[anchor=north, baedred] at (0.6,-1.7) {\textbf{Маспаломас}};
+  % Гальдар
+  \fill[baedink] (-2.0,3.1) circle (1.2pt);
+  \node[anchor=south, baedink] at (-2.0,3.2) {Гальдар};
+  % аэропорт Gando
+  \node[baedmute, scale=0.8] at (2.6,0.3) {$\oplus$};
+  \node[anchor=west, baedmute] at (2.7,0.3) {\tiny LPA};
+
+  % --- компас ---------------------------------------------------------
+  \draw[baedmute, line width=0.4pt] (3.6,3.4) -- (3.6,2.6);
+  \draw[baedmute, line width=0.4pt] (3.2,3.0) -- (4.0,3.0);
+  \node[anchor=south, baedmute] at (3.6,3.4) {\tiny С};
+  \node[anchor=north, baedmute] at (3.6,2.6) {\tiny Ю};
+
+  % --- масштаб --------------------------------------------------------
+  \draw[baedink, line width=0.5pt] (-3.0,-2.3) -- (-1.4,-2.3);
+  \foreach \x in {-3.0,-2.6,-2.2,-1.8,-1.4}
+    \draw[baedink] (\x,-2.25) -- (\x,-2.35);
+  \node[anchor=north, baedink] at (-2.2,-2.4) {\tiny 0\quad 10\quad 20\,км};
+
+  % --- легенда --------------------------------------------------------
+  \node[anchor=north west, baedmute] at (1.6,-1.8)
+       {\tiny\begin{tabular}{@{}l@{\ }l@{}}
+          \textcolor{baedred}{$\bullet$} & главный город \\
+          $\cdot$                        & городок \\
+          \textcolor{baedmute}{--\,--}   & автодорога GC-1 \\
+        \end{tabular}};
+\end{tikzpicture}
+\caption{Гран-Канария: обзорная карта.}
+\label{map:overview}
+\end{figure}
