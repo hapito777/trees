@@ -5,8 +5,11 @@
 % ---------------------------------------------------------------------
 
 % One-star / two-star sight: red asterisks precede the name.
-\newcommand{\sight}[1]{{\color{baedred}\textbf{*}}\,#1}
-\newcommand{\sightt}[1]{{\color{baedred}\textbf{**}}\,#1}
+% \texorpdfstring keeps PDF bookmarks plain-text (no \color in bookmarks).
+\newcommand{\sight}[1]{%
+  \texorpdfstring{{\color{baedred}\textbf{*}}\,#1}{* #1}}
+\newcommand{\sightt}[1]{%
+  \texorpdfstring{{\color{baedred}\textbf{**}}\,#1}{** #1}}
 
 % Letter-spaced (gesperrt) text using XeLaTeX / fontspec
 \newcommand{\sotext}[1]{{\addfontfeatures{LetterSpace=12.0}#1}}
@@ -51,16 +54,17 @@
 \newcommand{\factline}[1]{%
   \noindent{\small\color{baedmute}\textit{#1}}\par\vspace{0.3\baselineskip}}
 
-% Section heading style
+% Section heading styles (chapter kept at default book style so TOC works)
 \titleformat{\section}
   {\Large\bfseries\color{baedred}}{\thesection}{0.6em}{}
 \titleformat{\subsection}
   {\large\bfseries\color{baedink}}{\thesubsection}{0.5em}{}
+% Tweak chapter: red colour, horizontal rule underneath.
 \titleformat{\chapter}[display]
-  {\huge\bfseries\color{baedred}}
-  {\filleft\normalsize\color{baedmute}Глава \thechapter}
-  {0.4em}
-  {\filleft}
-  [\vspace{-0.2em}\color{baedrule}\rule{\linewidth}{0.4pt}]
+  {\normalfont\huge\bfseries\color{baedred}}
+  {\normalsize\color{baedmute}\normalfont Глава \thechapter}
+  {0.6em}{\huge\bfseries\color{baedred}}
+  [\vspace{0.2em}\color{baedrule}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
 
 \endinput
